@@ -1,0 +1,67 @@
+﻿@model  List<Rvas_ispit_projekat.Models.Book>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" rel="stylesheet" />
+<h2>Index</h2>
+
+@if (!Model.Any())
+{
+    <p> We dont have any books yet</p>
+}
+else
+{
+
+
+
+
+    <table class="table table-bordered table-hover" id="Book">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Publisher name</th>
+                <th>Authorr</th>
+                <th>Genre</th>
+                <th>Price</th>
+
+
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.title</td>
+                    <td>@item.Publisher.publisherName</td>
+                    <td>@item.author</td>
+                    <td>@item.genre</td>
+                    <td>@item.price<text> RSD</text></td>
+
+                </tr>
+
+
+
+            }
+        </tbody>
+
+
+    </table>
+    @section scripts{
+        <script src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js" type="text/javascript"></script>
+        <script>
+
+        $(document).ready(function () {
+            $('#Book').DataTable();
+        });
+
+
+        </script>
+
+
+
+    }
+
+}

@@ -1,0 +1,41 @@
+﻿@model Rvas_ispit_projekat.ViewModel.RentalsViewModel
+@{
+    ViewBag.Title = "Rental";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Rental</h2>
+
+@using (Html.BeginForm("Save", "RentalBooks"))
+{
+    <div class="form-group">
+        @Html.LabelFor(r => r.rentalBook.dateRented)
+        <br>
+        @Html.TextBoxFor(r => r.rentalBook.dateRented, new { @type = "date", @Value = Model.rentalBook.dateRented.ToString("yyyy-MM-dd") })
+        @Html.ValidationMessageFor(r => r.rentalBook.dateRented)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(r => r.rentalBook.bookID)
+        @Html.DropDownListFor(r => r.rentalBook.bookID, new SelectList(Model.books, "id", "title"), "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(r => r.rentalBook.bookID)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(r => r.rentalBook.userID)
+        @Html.DropDownListFor(r => r.rentalBook.userID, new SelectList(Model.users, "id", "name"), "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(r => r.rentalBook.userID)
+    </div>
+
+
+
+    @Html.HiddenFor(r => r.rentalBook.id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

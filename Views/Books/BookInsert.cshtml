@@ -1,0 +1,60 @@
+﻿@model Rvas_ispit_projekat.ViewModel.bookFormViewModel
+@{
+    ViewBag.Title = "BookInsert";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>BookInsert</h2>
+
+
+@using (Html.BeginForm("Save", "Books"))
+{
+
+    <div class="form-group">
+        @Html.LabelFor(b => b.Book.title)
+        @Html.TextBoxFor(b => b.Book.title, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Book.title)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(b => b.Book.publisherId)
+        @Html.DropDownListFor(b => b.Book.publisherId, new SelectList(Model.Publishers, "id", "publisherName"), "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(b => b.Book.publisherId)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(b => b.Book.author)
+        @Html.TextBoxFor(b => b.Book.author, new { @class = "form-control" })
+        @Html.ValidationMessageFor(b => b.Book.author)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(b => b.Book.genre)
+        @Html.TextBoxFor(b => b.Book.genre, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Book.genre)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(b => b.Book.pages)
+        @Html.TextBoxFor(b => b.Book.pages, new { @class = "form-control" })
+        @Html.ValidationMessageFor(b => b.Book.pages)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(b => b.Book.ISBN)
+        @Html.TextBoxFor(b => b.Book.ISBN, new { @class = "form-control" })
+        @Html.ValidationMessageFor(b => b.Book.ISBN)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(b => b.Book.language)
+        @Html.TextBoxFor(b => b.Book.language, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Book.language)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(b => b.Book.price)
+        @Html.TextBoxFor(b => b.Book.price, new { @class = "form-control" })
+        @Html.ValidationMessageFor(b => b.Book.price)
+    </div>
+
+    @Html.HiddenFor(b => b.Book.id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+
+}
+
+

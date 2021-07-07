@@ -1,0 +1,50 @@
+﻿@model Rvas_ispit_projekat.Models.User
+@{
+    ViewBag.Title = "User";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>User</h2>
+
+@using (Html.BeginForm("Save", "Users"))
+{
+
+    <div class="form-group">
+        @Html.LabelFor(u => u.name)
+        @Html.TextBoxFor(u => u.name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(u => u.name)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(u => u.lastname)
+        @Html.TextBoxFor(u => u.lastname, new { @class = "form-control" })
+        @Html.ValidationMessageFor(u => u.lastname)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(u => u.email)
+        @Html.TextBoxFor(u => u.email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(u => u.email)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(u => u.phone)
+        @Html.TextBoxFor(u => u.phone, new { @class = "form-control" })
+        @Html.ValidationMessageFor(u => u.phone)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(u => u.adress)
+        @Html.TextBoxFor(u => u.adress, new { @class = "form-control" })
+        @Html.ValidationMessageFor(u => u.adress)
+    </div>
+
+
+
+
+    @Html.HiddenFor(u => u.id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

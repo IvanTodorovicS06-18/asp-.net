@@ -1,0 +1,32 @@
+﻿@model Rvas_ispit_projekat.Models.Book
+@{
+    ViewBag.Title = "BookDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>BookDetails</h2>
+
+<label>Title:</label>
+<h5>@Model.title</h5>
+
+<label>Author:</label>
+<h5>@Model.author</h5>
+
+<label>Genre:</label>
+<h5>@Model.genre</h5>
+
+<label>Pages:</label>
+<h5>@Model.pages</h5>
+
+<label>ISBN:</label>
+<h5>@Model.ISBN</h5>
+
+<label>Language:</label>
+<h5>@Model.language</h5>
+
+<label>Publisher Name:</label>
+<h5>@Model.Publisher.publisherName</h5>
+
+<label>Price:</label>
+<h5>@Model.price<text> RSD</text></h5>
+

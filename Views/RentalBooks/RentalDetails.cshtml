@@ -1,0 +1,41 @@
+﻿@model Rvas_ispit_projekat.Models.RentalBook
+@{
+    ViewBag.Title = "RentalDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>RentalDetails</h2>
+<label>Title:</label>
+<p>@Model.Book.title</p>
+
+<label>Author:</label>
+<p>@Model.Book.author</p>
+
+<label>Publisher name:</label>
+<p>@Model.Book.Publisher.publisherName</p>
+
+<label>User Name:</label>
+<p>@Model.User.name</p>
+
+<label>User Last name:</label>
+<p>@Model.User.lastname</p>
+
+<label>User Email:</label>
+<p>@Model.User.email</p>
+
+<label>User Phone:</label>
+<p>@Model.User.phone</p>
+
+<label>User Adress:</label>
+<p>@Model.User.adress</p>
+
+<label>Date rented:</label>
+<p>@Model.dateRented</p>
+
+<label>Date Returned:</label>
+<p>@Model.dateReturned</p>
+
+
+
+
+
